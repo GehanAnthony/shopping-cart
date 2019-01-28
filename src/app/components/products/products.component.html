@@ -1,0 +1,50 @@
+<div class="jumbotron">
+  <table *ngIf="cart.length > 0" class="table table-striped">
+    <thead>
+      <tr class="row tabel-row">
+        <th class="col col-md-4">Product</th>
+        <th class="col col-md-2">Quantity</th>
+        <th class="col col-md-2">Price</th>
+        <th class="col col-md-2"></th>
+        <th class="col col-md-2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row tabel-row" *ngFor="let cartItem of cart ; let i=index">
+        <td class="col-md-4">{{cartItem.product.name}}</td>
+        <td class="col-md-2">{{cartItem.qty}}</td>
+        <td class="col-md-2">${{cartItem.product.price * cartItem.qty}}</td>
+        <td class="col-md-2 inline">
+          <input class="col-md-2" name="cartItem.name+{{i}}"  #qty type="number" class="form-control">
+          <a class="col-md-2 btn" (click)="editItem(cartItem,qty.value)">
+            <img src="../../../assets/images/edit.png">
+          </a>
+        </td>
+        <td class="col-md-2">
+          <a class="btn" (click)="deteteItem(cartItem)">
+            <img src="../../../assets/images/delete.png">
+          </a>
+        </td>
+      </tr>
+      <tr class="row tabel-row bg-warning" *ngIf="total">
+        <td class="col-md-6"></td>
+        <td class="col-md-2 total-text">Total : $ {{total}}</td>
+      </tr>
+    </tbody>
+    <button class="btn btn-secondary btn-lg checkout-btn" (click)="checkoutCart()" role="button">CheckOut</button>
+  </table>
+
+  <div class="empty-cart-container " *ngIf="!cart.length > 0 && !showCheckoutConfirmation">
+    <img class="empty-cart" src="../../../assets/images/cart-empty.png">
+  </div>
+
+
+  <div *ngIf="alert" class="alert alert-warning" role="alert">
+    Sorry, Quantity you enterd Currently Unavailable!
+  </div>
+  <div *ngIf="showCheckoutConfirmation" class="alert alert-dark empty-cart-container" role="alert">
+    <img class="empty-cart" width="500" height="500" src="../../../assets/images/cat.jpg">
+    <p> Thank you for visiting us and making your purchase! We’re glad that you found what you were looking for.</p>
+
+  </div>
+</div>

@@ -1,0 +1,40 @@
+.card-properties {
+    width: 20rem;
+    margin: 5px;
+    padding: 8px;
+}
+
+.img {
+    width: 200px;
+    height: 200px;
+}
+
+.cart-editor {
+    display: flex;
+}
+
+.cart-editor-item {
+    margin-left: 5px;
+}
+
+.btn-editor {
+    margin-left: 45px;
+}
+
+.view-btn {
+    margin-bottom: 10px;
+}
+
+.popup-modal {
+    position: absolute;
+    z-index: 1000;
+    top: 20%;
+    left: 30%;
+    width: max-content;
+    height: max-content;
+
+}
+
+.details-card {
+    width: 27rem;
+}

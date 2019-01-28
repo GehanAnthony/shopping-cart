@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col">
+    <div>
+      <div class="well rounded">
+        <table *ngIf="cart" class="table table-striped">
+          <tbody>
+            <tr *ngFor="let cartItem of cart">
+              <td>{{cartItem.product.name}}</td>
+              <td>{{cartItem.qty}}</td>
+              <td>${{cartItem.product.price * cartItem.qty}}</td>
+            </tr>
+            <tr class="empty-cart-tr" *ngIf="!cart.length > 0">
+              <img class="empty-cart" src="../../../../assets/images/cart-empty.png">
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

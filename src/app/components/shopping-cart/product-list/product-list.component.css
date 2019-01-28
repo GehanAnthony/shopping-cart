@@ -1,0 +1,9 @@
+.popup-modal {
+    position: absolute;
+    z-index: 1000;
+    bottom: 50%;
+    right: 50%;
+    width: max-content;
+    height: max-content;
+
+}

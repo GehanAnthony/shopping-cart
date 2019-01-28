@@ -1,0 +1,10 @@
+
+<div *ngIf= "products" class="row">
+  <div *ngFor="let product of products">
+      <app-product-item 
+      [product]="product"
+      (fetchCart)="getCart($event)"
+      ></app-product-item>
+  </div>
+</div>
+

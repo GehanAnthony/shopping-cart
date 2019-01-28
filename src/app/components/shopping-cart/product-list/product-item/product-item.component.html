@@ -1,0 +1,46 @@
+<div *ngIf="product" class="col-md-4">
+  <div class="card card-properties">
+    <img class="card-img-top img" [src]="product.imageUrl" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{product.name}}</h5>
+      <p class="card-text">${{product.price }}</p>
+        <button class="btn btn-secondary col-md-8 btn-editor view-btn" (click)="detailsModalShow()" >View Details</button>
+      <div class="cart-editor">
+        <a class="btn btn-warning cart-editor-item" (click)="removeOneFromCart(qty)">-</a>
+        <input  type="number"  [(ngModel)]="qty" class="form-control cart-editor-item">
+       <a class="btn btn-warning cart-editor-item" (click)="addToCart(qty)">+</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="alert" class="alert alert-warning" role="alert">
+  Sorry, Quantity you enterd Currently Unavailable!
+</div>
+
+<div *ngIf ="detailsPopUp" class="popup-modal" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div  role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">{{product.name}}</h5>
+          <button type="button" class="close" (click)="closeModal()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="card details-card card-properties">
+                <img class="card-img-top img" [src]="product.imageUrl" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">{{product.description }}</p>
+                  <h5 class="card-text">Price - ${{product.price }}</h5>
+                  <h5 class="card-text">Available Stock - {{product.stock }}</h5> 
+                  
+                </div>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-warning" (click)="closeModal()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
